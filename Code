@@ -1,0 +1,22 @@
+#define light_level_threshold 800
+
+void setup()
+{
+}
+
+
+void loop()
+{
+    int dark = random(7,9)*100;
+    
+    if(dark >= light_level_threshold)
+    {
+        Particle.publish("light_level_change", "Dark");
+        delay(2000);
+    }
+    else
+    {
+        Particle.publish("Enough Light");
+        delay(2000);
+    }
+}
